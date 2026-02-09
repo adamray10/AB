@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adam Banerjee | SAG-AFTRA Actor, Stand-Up Comedian, Voice Actor</title>
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!--
+  FINAL BEHAVIOR (READ THIS):
+
+  DESKTOP:
+  - Uses styles.css exactly as before
+  - Text LEFT, Photo RIGHT
+  - Agency info visible
+
+  MOBILE (<= 760px):
+  - Grid / flex / floats FORCE disabled
+  - Photo appears at VERY TOP
+  - Desktop photo hidden
+  - Agency info remains intact
+  -->
+  <style>
+    .mobile-photo {
+      display: none;
+    }
+
+    @media (max-width: 760px) {
+
+      .home-main,
+      .home-main.inner {
+        display: block !important;
+      }
+
+      .home-copy,
+      .home-photo,
+      .mobile-photo {
+        float: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      .mobile-photo {
+        display: block !important;
+        padding: 1rem 0 1.25rem 0;
+      }
+
+      .mobile-photo img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .home-photo {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="home-page">
+
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="index.html">ADAM BANERJEE</a>
+      <nav>
+        <a class="active" href="index.html">Home</a>
+        <a href="vo.html">VO</a>
+        <a href="standup.html">Stand Up</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="home-main inner">
+
+    <!-- MOBILE PHOTO (TOP ONLY) -->
+    <div class="mobile-photo">
+      <img src="Copy of HS Transparent.svg" alt="Adam Banerjee headshot" />
+    </div>
+
+    <!-- TEXT + AGENCIES -->
+    <section class="home-copy">
+      <h1>ADAM BANERJEE</h1>
+      <p class="subhead">SAG-AFTRA <span class="muted">(also credited as ADAM B. RAI)</span></p>
+      <p class="tagline">Comedian | Actor | Voice Actor</p>
+
+      <p class="intro">
+        Adam Banerjee is a stand-up comedian, actor, and voice actor working in Los Angeles and Atlanta.
+        He is a mixed South Asian Indian and white performer with credits across film, television, comedy clubs, and voiceover.
+      </p>
+
+      <section class="agency-blocks" aria-label="Representation">
+        <div class="agency">
+          <h2>Theatrical (LA)</h2>
+          <p>
+            Jana Luker Agency<br>
+            Amy Luker<br>
+            <a href="mailto:amyluker@lukeragency.com">amyluker@lukeragency.com</a>
+          </p>
+        </div>
+
+        <div class="agency">
+          <h2>Voice-over (LA)</h2>
+          <p>
+            Atlas Talent Agency<br>
+            Heather Dame<br>
+            <a href="mailto:heather@atlastalent.com">heather@atlastalent.com</a>
+          </p>
+        </div>
+
+        <div class="agency">
+          <h2>Theatrical (ATL)</h2>
+          <p>
+            MI Talent Agency<br>
+            Gina Henry<br>
+            <a href="mailto:gina@mitalentatlanta.com">gina@mitalentatlanta.com</a>
+          </p>
+        </div>
+      </section>
+
+      <p class="social-row">
+        <img src="instagram-logo.png" alt="Instagram logo" class="ig-logo" />
+        <a href="https://instagram.com/adambanerjee" target="_blank" rel="noopener noreferrer">@adambanerjee</a>
+      </p>
+    </section>
+
+    <!-- DESKTOP PHOTO (RIGHT) -->
+    <section class="home-photo" aria-label="Headshot">
+      <img src="Copy of HS Transparent.svg" alt="Adam Banerjee headshot" />
+    </section>
+
+  </main>
+
+</body>
+</html>
