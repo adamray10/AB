@@ -21,6 +21,15 @@
 
   <link rel="stylesheet" href="styles.css" />
 
+  <!-- ✅ MOBILE-ONLY FIX: move photo above everything -->
+  <style>
+    @media (max-width: 760px) {
+      .home-photo {
+        order: -1;
+      }
+    }
+  </style>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -35,6 +44,7 @@
   }
   </script>
 </head>
+
 <body class="home-page">
   <header class="site-header">
     <div class="inner">
@@ -93,6 +103,8 @@
       <img src="Copy of HS Transparent.svg" alt="Adam Banerjee headshot" />
     </section>
   </main>
-<script src="script.js"></script>
+
+  <script src="script.js"></script>
 </body>
 </html>
+
