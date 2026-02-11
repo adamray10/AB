@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adam Banerjee</title>
+  <style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: white;
+    color: #111;
+    min-height: 100vh;
+  }
+
+  /* Desktop layout */
+  .container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 28px 32px 0 32px;          /* slightly less top padding, NO bottom padding */
+    box-sizing: border-box;
+    gap: 32px;
+    min-height: 100vh;                  /* keeps photo bottom flush with page bottom */
+  }
+
+  .text {
+    flex: 1 1 520px;
+    min-width: 320px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .text h1 {
+    font-size: 2.5em;
+    margin: 0 0 10px;
+  }
+
+  .text p {
+    margin: 8px 0;
+    font-size: 1.1em;
+  }
+
+  .text h3 {
+    margin: 20px 0 5px;
+    font-size: 1.2em;
+  }
+
+  .agency {
+    margin-bottom: 15px;
+  }
+
+  a {
+    color: #111;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .social {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1em;
+  }
+
+  .social img {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Photo column: bottom-align and make it bigger */
+  .photo {
+    flex: 0 0 600px;                    /* wider column */
+    min-width: 420px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-end;              /* bottom align */
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .photo img {
+    display: block;
+    width: 100%;
+    height: calc(100vh - 28px);         /* taller: almost full viewport */
+    max-height: none;
+    object-fit: contain;                /* never crops */
+    object-position: center bottom;     /* sit on bottom edge */
+    margin: 0;
+  }
+
+  /* Mobile: stack, photo on top, keep full image visible */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 24px 16px 24px 16px;
+      gap: 20px;
+      min-height: auto;
+    }
+
+    .photo {
+      order: -1;
+      width: 100%;
+      min-width: 0;
+      flex: 0 0 auto;
+      align-items: center;
+    }
+
+    .photo img {
+      width: 100%;
+      height: auto;
+      max-height: none;
+      object-fit: contain;
+      object-position: center center;
+    }
+
+    .text {
+      width: 100%;
+      min-width: 0;
+      padding-right: 0;
+    }
+
+    .social {
+      justify-content: flex-start;
+    }
+  }
+</style>
+
+
+</head>
+<body>
+  <div class="container">
+    <div class="text">
+      <h1>Adam Banerjee</h1>
+      <p>Comedian | SAG-AFTRA | Voice Actor</p>
+
+      <div class="agency">
+        <h3>Theatrical (LA)</h3>
+        <p>Jana Luker Agency<br>Amy Luker<br>
+        <a href="mailto:amyluker@lukeragency.com">amyluker@lukeragency.com</a></p>
+      </div>
+
+      <div class="agency">
+        <h3>Voice-over (LA)</h3>
+        <p>Atlas Talent Agency<br>Heather Dame<br>
+        <a href="mailto:heather@atlastalent.com">heather@atlastalent.com</a></p>
+      </div>
+
+      <div class="agency">
+        <h3>Theatrical (ATL)</h3>
+        <p>MI Talent Agency<br>Gina Henry<br>
+        <a href="mailto:mitalentatlanta@gmail.com">mitalentatlanta@gmail.com</a></p>
+      </div>
+
+      <div class="social">
+        <img src="instagram-logo.png" alt="Instagram">
+        <a href="https://instagram.com/adambanerjee" target="_blank">@adambanerjee</a>
+      </div>
+    </div>
+
+    <div class="photo">
+      <img src="Copy of HS Transparent.svg" alt="Adam Banerjee">
+    </div>
+  </div>
+</body>
+</html>
