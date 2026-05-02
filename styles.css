@@ -1,10 +1,10 @@
 
 :root{
-  --bg:#f8f8f6;
-  --text:#111111;
-  --muted:#5e5e5e;
-  --line:#dbdbd8;
-  --accent:#1d1d1d;
+  --bg:#1a1108;
+  --text:#f0ede8;
+  --muted:#a89e94;
+  --line:#3d2e1e;
+  --accent:#f0ede8;
   --maxw:1160px;
 }
 
@@ -39,7 +39,7 @@ a:focus-visible{ text-decoration:underline; }
   top:0;
   z-index:20;
   border-bottom:1px solid var(--line);
-  background:rgba(248,248,246,.95);
+  background:rgba(26,17,8,.95);
   backdrop-filter: blur(4px);
 }
 
@@ -89,7 +89,7 @@ nav a.active{
 
 .lead{
   margin:0 0 .85rem;
-  color:#2e2e2e;
+  color:var(--text);
   max-width:72ch;
 }
 
@@ -163,7 +163,7 @@ nav a.active{
 
 .agency p{
   margin:0;
-  color:#242424;
+  color:var(--text);
 }
 
 .social-row{
@@ -194,7 +194,7 @@ nav a.active{
   border:1px solid var(--line);
   border-radius:12px;
   padding:.92rem;
-  background:#fcfcfb;
+  background:#221509;
 }
 
 .reel-card h2{
@@ -222,7 +222,7 @@ audio{
   border:1px solid var(--line);
   border-radius:12px;
   padding:.84rem;
-  background:#fcfcfb;
+  background:#221509;
 }
 
 .video-title{
@@ -266,7 +266,7 @@ audio{
   padding:.42rem .68rem;
   border:1px solid var(--line);
   border-radius:9px;
-  background:#fff;
+  background:#221509;
 }
 
 .btn-link:hover{
@@ -331,7 +331,7 @@ audio{
   border:1px solid var(--line);
   border-radius:12px;
   padding:.92rem;
-  background:#fcfcfb;
+  background:#221509;
 }
 
 .contact-card h2{
