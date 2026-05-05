@@ -194,21 +194,42 @@ nav a.active{
   gap:1rem;
 }
 
-.clip-wrap{
+.clip-card{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:.75rem;
   border:1px solid var(--line);
   border-radius:12px;
-  overflow:hidden;
-  background:#fff; /* Instagram embed has white bg */
-  min-height:480px;
-  display:flex;
-  align-items:stretch;
+  padding:2.4rem 1.2rem;
+  background:#221509;
+  color:var(--text);
+  text-align:center;
+  min-height:200px;
+  transition:border-color .18s, background .18s;
 }
 
-.clip-wrap blockquote.instagram-media{
-  margin:0 !important;
-  min-width:0 !important;
-  width:100% !important;
-  flex:1;
+.clip-card:hover{
+  border-color:var(--text);
+  background:#2a1a09;
+  text-decoration:none;
+}
+
+.clip-card svg{
+  width:40px;
+  height:40px;
+}
+
+.clip-card-label{
+  font-size:.95rem;
+  font-weight:600;
+}
+
+.clip-card-sub{
+  font-size:.82rem;
+  color:var(--muted);
+  margin-top:-.3rem;
 }
 
 /* As Seen On logo strip */
@@ -226,16 +247,15 @@ nav a.active{
 }
 
 .logo-img{
-  height:36px;
+  height:40px;
   width:auto;
   display:block;
-  filter:brightness(0) invert(1);
-  opacity:.65;
+  opacity:.88;
   transition:opacity .18s;
 }
 
 .logo-img:hover{
-  opacity:.9;
+  opacity:1;
 }
 
 /* VO page */
@@ -746,94 +766,93 @@ audio{
 }
 
 
-/* --- v30+ home layout: image on right, flush to bottom --- */
-.home-page{
-  min-height: 100vh !important;
-}
-
+/* --- Home hero: right-side photo, bottom-flush, top-cropped --- */
 .home-page .home-main{
   display: flex !important;
   flex-direction: row !important;
   align-items: flex-end !important;
   gap: 1rem !important;
-  min-height: calc(100vh - 56px) !important;
-  padding: calc(0.58rem + 5px) 0 0 !important;
+  /* 65vh keeps hero tall but lets logo strip show without scrolling */
+  min-height: 65vh !important;
+  height: 65vh !important;
+  padding: 0.6rem 0 0 !important;
   margin-bottom: 0 !important;
 }
 
 .home-page .home-copy{
-  flex: 0 0 50% !important;
-  max-width: 50% !important;
+  flex: 0 0 46% !important;
+  max-width: 46% !important;
   min-width: 0 !important;
-  align-self: flex-start !important;
-  padding-top: 0.16rem !important;
+  align-self: center !important;
+  padding-top: 0 !important;
 }
 
 .home-page .home-photo{
-  flex: 0 0 50% !important;
-  max-width: 50% !important;
+  flex: 0 0 54% !important;
+  max-width: 54% !important;
   min-width: 0 !important;
   height: 100% !important;
   display: flex !important;
   justify-content: flex-end !important;
   align-items: flex-end !important;
-  overflow: hidden !important;
+  overflow: hidden !important;  /* crops the top when image is taller than container */
   margin: 0 !important;
   padding: 0 !important;
 }
 
+/* Image is intentionally wider than container — bottom stays anchored, top crops */
 .home-page .home-photo img{
-  width: 150% !important;
+  width: 190% !important;
   max-width: none !important;
   height: auto !important;
   display: block !important;
-  margin-right: -22% !important;
+  margin-right: -44% !important;
   margin-bottom: 0 !important;
+}
+
+@media (max-width: 1200px){
+  .home-page .home-photo img{
+    width: 196% !important;
+    margin-right: -48% !important;
+  }
 }
 
 @media (max-width: 1024px){
   .home-page .home-photo img{
-    width: 164% !important;
-    margin-right: -30% !important;
+    width: 200% !important;
+    margin-right: -50% !important;
   }
 }
 
 @media (max-width: 860px){
   .home-page .home-main{
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: flex-end !important;
-    gap: 0.75rem !important;
-    min-height: calc(100vh - 56px) !important;
-    padding-top: calc(0.56rem + 5px) !important;
+    gap: 0.6rem !important;
+    min-height: 60vh !important;
+    height: 60vh !important;
   }
 
   .home-page .home-copy{
-    flex-basis: 50% !important;
-    max-width: 50% !important;
+    flex-basis: 48% !important;
+    max-width: 48% !important;
   }
 
   .home-page .home-photo{
-    flex-basis: 50% !important;
-    max-width: 50% !important;
-    justify-content: flex-end !important;
-    align-items: flex-end !important;
+    flex-basis: 52% !important;
+    max-width: 52% !important;
   }
 
   .home-page .home-photo img{
-    width: 174% !important;
-    margin-right: -36% !important;
+    width: 210% !important;
+    margin-right: -56% !important;
   }
 }
 
 @media (max-width: 600px){
   .home-page .home-main{
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: flex-end !important;
-    min-height: calc(100vh - 54px) !important;
-    gap: 0.55rem !important;
-    padding-top: calc(0.50rem + 5px) !important;
+    min-height: 55vh !important;
+    height: 55vh !important;
+    gap: 0.45rem !important;
+    padding-top: 0.4rem !important;
   }
 
   .home-page .home-copy{
@@ -847,22 +866,21 @@ audio{
   }
 
   .home-page .home-photo img{
-    width: 186% !important;
-    margin-right: -42% !important;
+    width: 220% !important;
+    margin-right: -60% !important;
   }
 
   .home-page .home-copy h1{
-    font-size: clamp(1.45rem, 7vw, 1.95rem) !important;
+    font-size: clamp(1.3rem, 6.5vw, 1.7rem) !important;
     line-height: 1.05 !important;
   }
 
   .home-page .subhead{
-    font-size: clamp(.92rem, 3.8vw, 1.02rem) !important;
+    font-size: clamp(.86rem, 3.5vw, .98rem) !important;
   }
 
-  .home-page .tagline,
   .home-page .intro{
-    font-size: 0.94rem !important;
+    font-size: 0.88rem !important;
   }
 }
 
