@@ -832,21 +832,17 @@ audio{
   margin-bottom: 0.6rem;
 }
 
-.logo-item {
-  opacity: 0.6;
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+.logo-img {
+  height: 36px;
+  width: auto;
+  opacity: 0.65;
+  filter: brightness(0) invert(1);
   transition: opacity 0.2s;
-  white-space: nowrap;
-  color: var(--text);
-  padding: 0.28rem 0.65rem;
-  border: 1px solid var(--line);
-  border-radius: 5px;
+  object-fit: contain;
+  display: block;
 }
 
-.logo-item:hover {
+.logo-img:hover {
   opacity: 1;
 }
 
