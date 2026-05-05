@@ -450,10 +450,7 @@ audio{
 
 /* --- v30 layout refinements --- */
 
-/* Remove footer entirely */
-.site-footer{
-  display: none !important;
-}
+/* Footer restored with social links */
 
 /* Home: image on right and flush to bottom of viewport */
 .home-page{
@@ -759,4 +756,338 @@ audio{
 .about-page .bio{
   max-width: 78ch;
   margin: 0 auto;
+}
+
+
+/* === v38: new sections and components === */
+
+/* SAG credit - smaller, muted, italic */
+.sag-credit {
+  font-size: 0.84rem;
+  color: var(--muted);
+  font-style: italic;
+  margin: 0 0 0.7rem;
+  font-weight: 400;
+}
+
+/* Section label headings */
+.section-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  margin: 0 0 0.9rem;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+/* Watch / Instagram clips row */
+.clips-section {
+  padding: 2rem 0 1.8rem;
+  border-top: 1px solid var(--line);
+}
+
+.clips-row {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 0.5rem;
+}
+
+.clip-wrap {
+  flex: 0 0 min(320px, 80vw);
+  scroll-snap-align: start;
+}
+
+.clip-wrap > blockquote {
+  margin: 0 !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+@media (max-width: 640px) {
+  .clips-row {
+    flex-direction: column;
+    overflow-x: visible;
+  }
+  .clip-wrap {
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* As Seen On / logo strip */
+.logo-strip-section {
+  padding: 0.5rem 0 2.5rem;
+}
+
+.logo-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 1rem;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.logo-item {
+  opacity: 0.6;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+  color: var(--text);
+  padding: 0.28rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+}
+
+.logo-item:hover {
+  opacity: 1;
+}
+
+/* Footer with social links */
+.site-footer {
+  border-top: 1px solid var(--line);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.6rem 0 0.9rem;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1.3rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  font-size: 0.86rem;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.18s;
+}
+
+.footer-social a:hover {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.footer-social svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.footer-copy {
+  margin: 0;
+  font-size: 0.74rem;
+  color: var(--muted);
+}
+
+/* VO page photo */
+.vo-hero-wrap {
+  text-align: center;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.vo-hero {
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+  border-radius: 12px;
+  display: inline-block;
+  border: 1px solid var(--line);
+}
+
+.vo-bio {
+  margin: 0 0 1.25rem;
+  max-width: 68ch;
+  line-height: 1.62;
+}
+
+/* Plyr dark theme overrides */
+.plyr--audio .plyr__controls {
+  background: #241c0f;
+  border-radius: 8px;
+  color: var(--text);
+  padding: 0.5rem 0.75rem;
+}
+
+.plyr--audio .plyr__control {
+  color: var(--text);
+}
+
+.plyr--audio .plyr__control:hover,
+.plyr--audio .plyr__control:focus {
+  background: var(--line);
+  color: var(--text);
+}
+
+.plyr__progress input[type=range],
+.plyr__volume input[type=range] {
+  color: var(--text);
+}
+
+/* Stand-up page */
+.upcoming-shows-section {
+  background: #241c0f;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.95rem 1.15rem;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.upcoming-shows-section h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+}
+
+.upcoming-shows-section p {
+  margin: 0;
+  font-size: 0.93rem;
+}
+
+.standup-videos {
+  display: grid;
+  gap: 1.75rem;
+  margin-top: 1.1rem;
+}
+
+.yt-embed-wrap {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  max-width: 640px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #000;
+  margin: 0 0 0.45rem;
+}
+
+.yt-embed-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.video-context {
+  font-size: 0.87rem;
+  color: var(--muted);
+  font-style: italic;
+  margin: 0;
+  max-width: 640px;
+}
+
+/* About page credit highlights */
+.credit-highlights {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  margin: 0.6rem 0 1.5rem;
+}
+
+.credit-item {
+  background: #241c0f;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.6rem 0.95rem;
+  font-size: 0.87rem;
+  line-height: 1.35;
+  min-width: 0;
+}
+
+.credit-item strong {
+  display: block;
+  font-size: 0.94rem;
+  margin-bottom: 0.1rem;
+  color: var(--text);
+}
+
+.credit-item span {
+  color: var(--muted);
+}
+
+/* Contact page */
+.contact-note {
+  background: #241c0f;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  margin: 0 0 1.25rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+/* Studio page */
+.studio-intro {
+  max-width: 64ch;
+  margin: 0 0 1.5rem;
+  line-height: 1.62;
+}
+
+.gear-table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 540px;
+  margin: 0 0 1.5rem;
+}
+
+.gear-table td {
+  padding: 0.55rem 0;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+
+.gear-table td:first-child {
+  color: var(--muted);
+  font-size: 0.86rem;
+  width: 40%;
+  padding-right: 1rem;
+  white-space: nowrap;
+}
+
+.gear-table td:last-child {
+  font-weight: 600;
+  font-size: 0.94rem;
+}
+
+.studio-links {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.studio-link-btn {
+  display: inline-block;
+  padding: 0.48rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  font-size: 0.91rem;
+  background: #241c0f;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.studio-link-btn:hover {
+  opacity: 0.8;
+  text-decoration: none;
 }

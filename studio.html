@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VO Reels | Adam Banerjee</title>
-  <meta name="description" content="Voice-over demo reels for Adam Banerjee — video games, anime, animation, podcast, and promo. Also credited as Adam B. Rai. Represented by Atlas Talent Agency / Heather Dame." />
+  <title>Studio | Adam Banerjee</title>
+  <meta name="description" content="Adam Banerjee's home recording studio setup for professional voice-over work. Equipped with a Rode NTG4+, Audient iD14, Sony MDR-7506 headphones, and acoustic treatment on an M3 MacBook Pro." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%231a1108'/><text x='16' y='23' text-anchor='middle' font-family='Arial,sans-serif' font-size='15' font-weight='700' fill='%23f0ede8'>AB</text></svg>">
-  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -15,7 +14,7 @@
       <a class="brand" href="index.html">ADAM BANERJEE</a>
       <nav aria-label="Main navigation">
         <a href="index.html">Home</a>
-        <a class="active" href="vo.html">VO</a>
+        <a href="vo.html">VO</a>
         <a href="standup.html">Stand Up</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
@@ -24,60 +23,45 @@
   </header>
 
   <main class="page inner">
-    <h1>Voice-Over Reels</h1>
+    <h1>Studio</h1>
 
-    <div class="vo-hero-wrap">
-      <img src="Pic%20for%20Email%20Signature.JPG" alt="Adam Banerjee in the studio" class="vo-hero" />
+    <p class="studio-intro">
+      Adam records professional-quality voice-over from his home studio. The setup is purpose-built for clean, broadcast-ready audio with full acoustic treatment — ready for same-day turnaround on most projects.
+    </p>
+
+    <table class="gear-table" aria-label="Studio gear specifications">
+      <tbody>
+        <tr>
+          <td>Microphone</td>
+          <td>Rode NTG4+</td>
+        </tr>
+        <tr>
+          <td>Interface</td>
+          <td>Audient iD14</td>
+        </tr>
+        <tr>
+          <td>Headphones</td>
+          <td>Sony MDR-7506 Professional</td>
+        </tr>
+        <tr>
+          <td>Workstation</td>
+          <td>MacBook Pro, M3 chip, 36 GB memory</td>
+        </tr>
+        <tr>
+          <td>Acoustic Treatment</td>
+          <td>Acoustic sound curtains — fully enclosed</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="font-size:0.93rem;color:var(--muted);">
+      Available for remote sessions, self-directed auditions, and directed sessions via Source-Connect or phone patch.
+    </p>
+
+    <div class="studio-links">
+      <a href="vo.html" class="studio-link-btn">← Back to VO Reels</a>
+      <a href="contact.html" class="studio-link-btn">Contact for Bookings</a>
     </div>
-
-    <p class="vo-bio">
-      Adam brings authenticity and versatility to video game characters, anime roles, animation, and commercial work.
-      He's also credited professionally as Adam B. Rai and is represented for voice-over by Atlas Talent Agency (Heather Dame) in Los Angeles.
-      His range spans heroic leads, distinct character voices, and warm conversational narration.
-    </p>
-
-    <section class="reel-list">
-
-      <article class="reel-card">
-        <h2><span class="reel-card-icon">🎮</span> Video Game Reel</h2>
-        <audio preload="none">
-          <source src="Video%20Game%20Reel.mp3" type="audio/mpeg" />
-        </audio>
-      </article>
-
-      <article class="reel-card">
-        <h2><span class="reel-card-icon">⚡</span> Anime Reel</h2>
-        <audio preload="none">
-          <source src="Anime%20Reel.mp3" type="audio/mpeg" />
-        </audio>
-      </article>
-
-      <article class="reel-card">
-        <h2><span class="reel-card-icon">🎬</span> Animation Reel</h2>
-        <audio preload="none">
-          <source src="Animation%20Reel.mp3" type="audio/mpeg" />
-        </audio>
-      </article>
-
-      <article class="reel-card">
-        <h2><span class="reel-card-icon">🎙</span> Podcast Reel</h2>
-        <audio preload="none">
-          <source src="Podcast%20Reel.mp3" type="audio/mpeg" />
-        </audio>
-      </article>
-
-      <article class="reel-card">
-        <h2><span class="reel-card-icon">📡</span> Promo Reel</h2>
-        <audio preload="none">
-          <source src="Promo%20Reel.mp3" type="audio/mpeg" />
-        </audio>
-      </article>
-
-    </section>
-
-    <p style="margin-top:1.5rem;font-size:0.93rem;">
-      Interested in my studio setup? <a href="studio.html">View studio details →</a>
-    </p>
   </main>
 
   <footer class="site-footer">
@@ -100,14 +84,6 @@
     </div>
   </footer>
 
-  <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      Plyr.setup('audio', {
-        controls: ['play', 'progress', 'current-time', 'mute', 'volume']
-      });
-    });
-  </script>
   <script src="script.js"></script>
 </body>
 </html>
