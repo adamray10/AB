@@ -855,6 +855,11 @@ audio{
   border-top: 1px solid var(--line);
 }
 
+/* Override the cramped padding from old .site-footer .inner rule */
+.site-footer .inner {
+  padding: 0.6rem 0 0.9rem;
+}
+
 .footer-inner {
   display: flex;
   align-items: center;
@@ -1034,6 +1039,51 @@ audio{
   margin: 0 0 1.25rem;
   font-size: 0.92rem;
   line-height: 1.55;
+}
+
+/* Bio paragraph spacing */
+.bio p {
+  margin: 0 0 1rem;
+  line-height: 1.64;
+}
+.bio p:last-child {
+  margin-bottom: 0;
+}
+
+/* Homepage mobile: stack photo on top, text below at small screens */
+@media (max-width: 520px) {
+  .home-page .home-main {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    min-height: auto !important;
+    padding-top: 0.5rem !important;
+    gap: 0.5rem !important;
+  }
+  .home-page .home-copy {
+    flex: none !important;
+    max-width: 100% !important;
+    order: 2 !important;
+    align-self: auto !important;
+    padding-top: 0.5rem !important;
+  }
+  .home-page .home-photo {
+    flex: none !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+    order: 1 !important;
+    justify-content: center !important;
+    overflow: visible !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .home-page .home-photo img {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
+  }
 }
 
 /* Studio page */
