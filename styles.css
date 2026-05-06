@@ -173,14 +173,13 @@ nav a.active{
   transform:translateY(1px);
 }
 
-/* Clips section (Instagram Reels row on home) */
+/* Clips section (inside home-left, single column) */
 .clips-section{
-  border-top:1px solid var(--line);
-  padding:1.4rem 0 2rem;
+  padding:0;
 }
 
 .section-label{
-  margin:0 0 1rem;
+  margin:0 0 .75rem;
   font-size:.78rem;
   font-weight:700;
   letter-spacing:.1em;
@@ -188,11 +187,23 @@ nav a.active{
   color:var(--muted);
 }
 
-.clips-row{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:1.2rem;
-  align-items:start;
+.clips-col{
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+}
+
+/* Clip the Instagram embed iframe to show only the video,
+   hiding the profile header (top) and likes/footer (bottom) */
+.ig-clip{
+  overflow:hidden;
+  border-radius:12px;
+  height:480px;
+  position:relative;
+}
+
+.ig-clip iframe{
+  margin-top:-62px !important;
 }
 
 .clip-card{
@@ -233,9 +244,9 @@ nav a.active{
   margin-top:-.3rem;
 }
 
-/* As Seen On logo strip — no border separator, flows naturally from hero */
+/* As Seen On logo strip — inside home-left, no border separator */
 .logo-strip{
-  padding:.6rem 0 1.2rem;
+  padding:0;
 }
 
 .logos-row{
@@ -243,17 +254,17 @@ nav a.active{
   align-items:center;
   justify-content:flex-start;
   flex-wrap:wrap;
-  gap:1rem 1.4rem;
+  gap:1rem 1.2rem;
 }
 
-/* Logo images get a warm amber pill background so dark logos are visible */
+/* 2.5× size logos with amber pill background */
 .logo-img{
-  height:44px;
+  height:110px;
   width:auto;
   display:block;
   background:#e8c054;
-  border-radius:8px;
-  padding:5px 12px;
+  border-radius:10px;
+  padding:8px 18px;
   box-sizing:content-box;
   transition:opacity .18s;
 }
@@ -633,7 +644,7 @@ audio{
 .footer-social a{
   display:flex;
   align-items:center;
-  color:var(--muted);
+  color:#e8c054;
   transition:color .15s;
   line-height:0;
 }
@@ -750,10 +761,6 @@ audio{
     gap:.7rem 1rem;
   }
 
-  .logo-img{
-    height:34px;
-  }
-
   .footer-inner{
     flex-direction:column;
     align-items:flex-start;
@@ -762,86 +769,113 @@ audio{
 }
 
 
-/* --- Home hero: right-side photo, full figure visible --- */
+/* --- Home layout: left column (text+logos+clips) + sticky photo --- */
+
+/* home-main is the flex row container */
 .home-page .home-main{
   display: flex !important;
   flex-direction: row !important;
-  align-items: flex-end !important;
-  gap: 1rem !important;
+  align-items: flex-start !important;
+  gap: 0 !important;
   height: auto !important;
   min-height: 0 !important;
-  padding: 1rem 0 0 !important;
-  margin-bottom: 0 !important;
+  padding: 1.2rem 0 0 !important;
 }
 
+/* Left column: stacks text → logos → clips vertically */
+.home-left{
+  flex: 0 0 44%;
+  max-width: 44%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* Text block: stays at top of left column */
 .home-page .home-copy{
-  flex: 0 0 44% !important;
-  max-width: 44% !important;
+  flex: none !important;
+  max-width: none !important;
   min-width: 0 !important;
-  align-self: center !important;
-  padding-top: 0 !important;
 }
 
+/* Photo: sticky so it stays in view while left column scrolls.
+   Height = viewport minus the sticky header. */
 .home-page .home-photo{
   flex: 0 0 56% !important;
   max-width: 56% !important;
   min-width: 0 !important;
+  position: sticky !important;
+  top: 52px !important;          /* approx header height */
+  height: calc(100vh - 52px) !important;
   display: flex !important;
-  justify-content: flex-end !important;
   align-items: flex-end !important;
-  overflow: visible !important;
+  justify-content: flex-end !important;
+  overflow: hidden !important;
   margin: 0 !important;
   padding: 0 !important;
 }
 
-/* Full figure — no cropping of the person */
+/* Image fills the sticky column height, anchored bottom-right.
+   Full figure visible — object-fit contain shows the whole image. */
 .home-page .home-photo img{
-  width: 100% !important;
+  height: 100% !important;
+  width: auto !important;
   max-width: 100% !important;
-  height: auto !important;
+  object-fit: contain !important;
+  object-position: right bottom !important;
   display: block !important;
   margin: 0 !important;
 }
 
 @media (max-width: 860px){
-  .home-page .home-copy{
-    flex-basis: 46% !important;
-    max-width: 46% !important;
+  /* On tablet/mobile: stack the photo above the content */
+  .home-page .home-main{
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding-top: 0 !important;
+  }
+
+  .home-left{
+    flex: none !important;
+    max-width: 100% !important;
+    padding-right: 0 !important;
+    order: 2; /* content below photo */
   }
 
   .home-page .home-photo{
-    flex-basis: 54% !important;
-    max-width: 54% !important;
+    flex: none !important;
+    max-width: 100% !important;
+    position: static !important;
+    height: 56vw !important;    /* proportional height on mobile */
+    justify-content: center !important;
+    align-items: flex-end !important;
+    order: 1;
+  }
+
+  .home-page .home-photo img{
+    height: 100% !important;
+    width: auto !important;
+    max-width: 100% !important;
+    object-position: center bottom !important;
   }
 }
 
 @media (max-width: 600px){
-  .home-page .home-main{
-    gap: 0.5rem !important;
-    padding-top: 0.8rem !important;
-  }
-
-  .home-page .home-copy{
-    flex-basis: 50% !important;
-    max-width: 50% !important;
+  .home-left{
+    gap: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
   }
 
   .home-page .home-photo{
-    flex-basis: 50% !important;
-    max-width: 50% !important;
+    height: 72vw !important;
   }
 
-  .home-page .home-copy h1{
-    font-size: clamp(1.3rem, 6.5vw, 1.7rem) !important;
-    line-height: 1.05 !important;
-  }
-
-  .home-page .subhead{
-    font-size: clamp(.86rem, 3.5vw, .98rem) !important;
-  }
-
-  .home-page .intro{
-    font-size: 0.88rem !important;
+  .logo-img{
+    height: 70px !important;
+    padding: 6px 12px !important;
   }
 }
 
@@ -887,4 +921,10 @@ audio{
     padding-top: 1.25rem !important;
     padding-bottom: 1.6rem !important;
   }
+}
+
+/* Contact page — add breathing room above footer */
+.contact-page .page{
+  min-height: 72vh;
+  padding-bottom: 5rem;
 }
