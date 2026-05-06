@@ -193,27 +193,20 @@ nav a.active{
   gap:1rem;
 }
 
-/* Clip the Instagram embed iframe to show only the video,
-   hiding the profile header (top) and likes/footer (bottom) */
+/* Instagram /embed/ iframe — clean video player, no social chrome */
 .ig-clip{
-  overflow:hidden;
   border-radius:12px;
-  height:480px;
+  overflow:hidden;
+  background:#000;
   position:relative;
-  background:var(--bg);
 }
 
 .ig-clip iframe{
-  margin-top:-62px !important;
-}
-
-/* Remove white edge lines by overriding blockquote inline styles */
-.ig-clip .instagram-media{
-  background:var(--bg) !important;
-  box-shadow:none !important;
-  margin:0 !important;
-  min-width:100% !important;
-  width:100% !important;
+  width:100%;
+  aspect-ratio:9/16;
+  display:block;
+  border:0;
+  margin:0;
 }
 
 .clip-card{
@@ -558,6 +551,19 @@ audio{
   display:block;
   border:1px solid var(--line);
   border-radius:12px;
+}
+
+/* About credits — clean inline list replacing button pills */
+.credit-line{
+  margin:0 0 1.1rem;
+  font-size:.9rem;
+  color:var(--muted);
+  letter-spacing:.01em;
+}
+
+.credit-line em{
+  color:var(--text);
+  font-style:italic;
 }
 
 /* Contact */
