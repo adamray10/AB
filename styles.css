@@ -193,20 +193,21 @@ nav a.active{
   gap:1rem;
 }
 
-/* Instagram /embed/ iframe — clean video player, no social chrome */
+/* Instagram /embed/ iframe — clip top profile bar and bottom action bar */
 .ig-clip{
   border-radius:12px;
   overflow:hidden;
   background:#000;
   position:relative;
+  height:540px; /* visible video area: iframe height - top(66) - bottom(~144) */
 }
 
 .ig-clip iframe{
-  width:100%;
-  aspect-ratio:9/16;
   display:block;
+  width:100%;
+  height:750px;
+  margin-top:-66px; /* shifts up to hide profile header */
   border:0;
-  margin:0;
 }
 
 .clip-card{
