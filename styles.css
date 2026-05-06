@@ -176,7 +176,7 @@ nav a.active{
 /* Clips section (Instagram Reels row on home) */
 .clips-section{
   border-top:1px solid var(--line);
-  padding:1.4rem 0 1.6rem;
+  padding:1.4rem 0 2rem;
 }
 
 .section-label{
@@ -191,7 +191,8 @@ nav a.active{
 .clips-row{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:1rem;
+  gap:1.2rem;
+  align-items:start;
 }
 
 .clip-card{
@@ -232,10 +233,9 @@ nav a.active{
   margin-top:-.3rem;
 }
 
-/* As Seen On logo strip */
+/* As Seen On logo strip — no border separator, flows naturally from hero */
 .logo-strip{
-  border-top:1px solid var(--line);
-  padding:1.2rem 0 1.4rem;
+  padding:.6rem 0 1.2rem;
 }
 
 .logos-row{
@@ -243,19 +243,23 @@ nav a.active{
   align-items:center;
   justify-content:flex-start;
   flex-wrap:wrap;
-  gap:1.6rem 2.2rem;
+  gap:1rem 1.4rem;
 }
 
+/* Logo images get a warm amber pill background so dark logos are visible */
 .logo-img{
-  height:40px;
+  height:44px;
   width:auto;
   display:block;
-  opacity:.88;
+  background:#e8c054;
+  border-radius:8px;
+  padding:5px 12px;
+  box-sizing:content-box;
   transition:opacity .18s;
 }
 
 .logo-img:hover{
-  opacity:1;
+  opacity:.85;
 }
 
 /* VO page */
@@ -623,16 +627,15 @@ audio{
 .footer-social{
   display:flex;
   align-items:center;
-  gap:1rem;
+  gap:1.2rem;
 }
 
 .footer-social a{
   display:flex;
   align-items:center;
-  gap:.38rem;
-  font-size:.88rem;
   color:var(--muted);
   transition:color .15s;
+  line-height:0;
 }
 
 .footer-social a:hover{
@@ -641,17 +644,10 @@ audio{
 }
 
 .footer-social svg{
-  width:17px;
-  height:17px;
+  width:24px;
+  height:24px;
   fill:currentColor;
   flex-shrink:0;
-}
-
-.footer-copy{
-  margin:0;
-  font-size:.76rem;
-  color:var(--muted);
-  line-height:1.1;
 }
 
 /* Responsive */
@@ -751,11 +747,11 @@ audio{
   }
 
   .logos-row{
-    gap:1.1rem 1.5rem;
+    gap:.7rem 1rem;
   }
 
   .logo-img{
-    height:28px;
+    height:34px;
   }
 
   .footer-inner{
@@ -766,108 +762,73 @@ audio{
 }
 
 
-/* --- Home hero: right-side photo, bottom-flush, top-cropped --- */
+/* --- Home hero: right-side photo, full figure visible --- */
 .home-page .home-main{
   display: flex !important;
   flex-direction: row !important;
   align-items: flex-end !important;
   gap: 1rem !important;
-  /* 65vh keeps hero tall but lets logo strip show without scrolling */
-  min-height: 65vh !important;
-  height: 65vh !important;
-  padding: 0.6rem 0 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 1rem 0 0 !important;
   margin-bottom: 0 !important;
 }
 
 .home-page .home-copy{
-  flex: 0 0 46% !important;
-  max-width: 46% !important;
+  flex: 0 0 44% !important;
+  max-width: 44% !important;
   min-width: 0 !important;
   align-self: center !important;
   padding-top: 0 !important;
 }
 
 .home-page .home-photo{
-  flex: 0 0 54% !important;
-  max-width: 54% !important;
+  flex: 0 0 56% !important;
+  max-width: 56% !important;
   min-width: 0 !important;
-  height: 100% !important;
   display: flex !important;
   justify-content: flex-end !important;
   align-items: flex-end !important;
-  overflow: hidden !important;  /* crops the top when image is taller than container */
+  overflow: visible !important;
   margin: 0 !important;
   padding: 0 !important;
 }
 
-/* Image is intentionally wider than container — bottom stays anchored, top crops */
+/* Full figure — no cropping of the person */
 .home-page .home-photo img{
-  width: 190% !important;
-  max-width: none !important;
+  width: 100% !important;
+  max-width: 100% !important;
   height: auto !important;
   display: block !important;
-  margin-right: -44% !important;
-  margin-bottom: 0 !important;
-}
-
-@media (max-width: 1200px){
-  .home-page .home-photo img{
-    width: 196% !important;
-    margin-right: -48% !important;
-  }
-}
-
-@media (max-width: 1024px){
-  .home-page .home-photo img{
-    width: 200% !important;
-    margin-right: -50% !important;
-  }
+  margin: 0 !important;
 }
 
 @media (max-width: 860px){
-  .home-page .home-main{
-    gap: 0.6rem !important;
-    min-height: 60vh !important;
-    height: 60vh !important;
-  }
-
   .home-page .home-copy{
-    flex-basis: 48% !important;
-    max-width: 48% !important;
+    flex-basis: 46% !important;
+    max-width: 46% !important;
   }
 
   .home-page .home-photo{
-    flex-basis: 52% !important;
-    max-width: 52% !important;
-  }
-
-  .home-page .home-photo img{
-    width: 210% !important;
-    margin-right: -56% !important;
+    flex-basis: 54% !important;
+    max-width: 54% !important;
   }
 }
 
 @media (max-width: 600px){
   .home-page .home-main{
-    min-height: 55vh !important;
-    height: 55vh !important;
-    gap: 0.45rem !important;
-    padding-top: 0.4rem !important;
+    gap: 0.5rem !important;
+    padding-top: 0.8rem !important;
   }
 
   .home-page .home-copy{
-    flex-basis: 52% !important;
-    max-width: 52% !important;
+    flex-basis: 50% !important;
+    max-width: 50% !important;
   }
 
   .home-page .home-photo{
-    flex-basis: 48% !important;
-    max-width: 48% !important;
-  }
-
-  .home-page .home-photo img{
-    width: 220% !important;
-    margin-right: -60% !important;
+    flex-basis: 50% !important;
+    max-width: 50% !important;
   }
 
   .home-page .home-copy h1{
