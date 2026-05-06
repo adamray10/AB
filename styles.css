@@ -898,6 +898,22 @@ audio{
   }
 }
 
+@media (max-width: 860px){
+  .ig-clip{
+    height: 460px;
+  }
+
+  .ig-clip iframe{
+    height: 680px;
+    margin-top: -66px;
+  }
+
+  /* Separator line under hero photo so it ends intentionally */
+  .home-page .home-photo{
+    border-bottom: 1px solid var(--line) !important;
+  }
+}
+
 @media (max-width: 600px){
   .home-left{
     gap: 1.5rem !important;
@@ -906,6 +922,15 @@ audio{
 
   .home-page .home-photo{
     height: 72vw !important;
+  }
+
+  .ig-clip{
+    height: 390px;
+  }
+
+  .ig-clip iframe{
+    height: 610px;
+    margin-top: -66px;
   }
 
   .logo-img{
