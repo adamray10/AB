@@ -829,7 +829,8 @@ audio{
 
 /* Photo: sticky so it stays in view while left column scrolls.
    Height = viewport minus the sticky header.
-   overflow: visible lets the image bleed rightward into page margin (body clips scrollbars). */
+   overflow: visible + clip-path lets image bleed rightward but clips the top
+   so the scaled image never overlaps the sticky header. */
 .home-page .home-photo{
   flex: 0 0 56% !important;
   max-width: 56% !important;
@@ -841,6 +842,7 @@ audio{
   align-items: flex-end !important;
   justify-content: flex-end !important;
   overflow: visible !important;
+  clip-path: inset(0.6rem -60vw 0 0) !important; /* clip top ~10px below header; allow right bleed */
   margin: 0 !important;
   padding: 0 !important;
 }
@@ -883,6 +885,7 @@ audio{
     height: 56vw !important;    /* proportional height on mobile */
     justify-content: center !important;
     align-items: flex-end !important;
+    clip-path: none !important;  /* reset desktop clip so mobile layout is unaffected */
     order: 1;
   }
 
