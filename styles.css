@@ -810,8 +810,8 @@ audio{
 
 /* Left column: stacks text → logos → clips vertically */
 .home-left{
-  flex: 0 0 38%;
-  max-width: 38%;
+  flex: 0 0 44%;
+  max-width: 44%;
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -830,21 +830,21 @@ audio{
 /* Photo: sticky so it stays in view while left column scrolls.
    Height = viewport minus the sticky header. */
 .home-page .home-photo{
-  flex: 0 0 62% !important;
-  max-width: 62% !important;
+  flex: 0 0 56% !important;
+  max-width: 56% !important;
   min-width: 0 !important;
   position: sticky !important;
   top: 52px !important;
   height: calc(100vh - 52px) !important;
   display: flex !important;
   align-items: flex-end !important;
-  justify-content: center !important;   /* center image horizontally in column */
+  justify-content: flex-end !important;  /* push image toward the right edge */
   overflow: hidden !important;
   margin: 0 !important;
   padding: 0 !important;
 }
 
-/* Image fills the sticky column height, centered in the right column.
+/* Image fills the sticky column height, right-aligned.
    Scale(1.18) makes the figure larger; transparent SVG margins absorb
    the scale so body/microphone are not cropped. */
 .home-page .home-photo img{
@@ -852,11 +852,11 @@ audio{
   width: auto !important;
   max-width: 100% !important;
   object-fit: contain !important;
-  object-position: center bottom !important;
+  object-position: right bottom !important;
   display: block !important;
   margin: 0 !important;
   transform: scale(1.18);
-  transform-origin: bottom center;
+  transform-origin: bottom right;
 }
 
 @media (max-width: 860px){
@@ -890,6 +890,8 @@ audio{
     width: auto !important;
     max-width: 100% !important;
     object-position: center bottom !important;
+    transform: none !important;       /* reset desktop scale so head/mic aren't clipped */
+    transform-origin: unset !important;
   }
 }
 
