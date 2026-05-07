@@ -856,7 +856,7 @@ audio{
   object-position: right bottom !important;
   display: block !important;
   margin: 0 !important;
-  transform: translateX(18%) scale(1.25);
+  transform: translateX(30%) scale(1.32);
   transform-origin: bottom right;
 }
 
