@@ -263,32 +263,20 @@ nav a.active{
   gap:1rem 1.2rem;
 }
 
-/* Logos with amber pill background */
+/* Logos with amber pill background — uniform size, no individual overrides */
 .logo-img{
-  height:99px;
+  height:110px;
   width:auto;
   display:block;
   background:#e8c054;
   border-radius:10px;
-  padding:8px 14px;
+  padding:8px 18px;
   box-sizing:content-box;
   transition:opacity .18s;
 }
 
 .logo-img:hover{
   opacity:.85;
-}
-
-/* HBO Max: bigger in its pill — taller height, tight padding */
-.logo-img--hbo{
-  height:118px;
-  padding:3px 6px;
-}
-
-/* Haha: keep taller since it was already visually small */
-.logo-img--haha{
-  height:110px;
-  padding:5px 8px;
 }
 
 /* Force flex-wrap line breaks between logo groups */
@@ -843,34 +831,32 @@ audio{
    Height = viewport minus the sticky header. */
 .home-page .home-photo{
   flex: 0 0 62% !important;
-  max-width: none !important;    /* allow extending past .inner right boundary */
+  max-width: 62% !important;
   min-width: 0 !important;
   position: sticky !important;
-  top: 52px !important;          /* approx header height */
+  top: 52px !important;
   height: calc(100vh - 52px) !important;
   display: flex !important;
   align-items: flex-end !important;
-  justify-content: flex-end !important;
+  justify-content: center !important;   /* center image horizontally in column */
   overflow: hidden !important;
-  /* bleed toward browser right edge; body overflow-x:hidden prevents scrollbar */
-  margin-right: calc(-1 * (100vw - min(100vw - 2rem, 1160px)) / 2) !important;
   margin: 0 !important;
   padding: 0 !important;
 }
 
-/* Image fills the sticky column height, anchored bottom-right.
-   Scale(1.18) makes the figure appear larger — transparent SVG margins absorb
+/* Image fills the sticky column height, centered in the right column.
+   Scale(1.18) makes the figure larger; transparent SVG margins absorb
    the scale so body/microphone are not cropped. */
 .home-page .home-photo img{
   height: 100% !important;
   width: auto !important;
   max-width: 100% !important;
   object-fit: contain !important;
-  object-position: right bottom !important;
+  object-position: center bottom !important;
   display: block !important;
   margin: 0 !important;
   transform: scale(1.18);
-  transform-origin: right bottom;
+  transform-origin: bottom center;
 }
 
 @media (max-width: 860px){
@@ -943,11 +929,6 @@ audio{
   .logo-img{
     height: 70px !important;
     padding: 6px 12px !important;
-  }
-
-  .logo-img--haha{
-    height: 78px !important;
-    padding: 4px 8px !important;
   }
 }
 
