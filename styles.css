@@ -193,44 +193,22 @@ nav a.active{
   gap:1rem;
 }
 
-/* Instagram /embed/ iframe — overlay masks hide chrome without clipping the iframe */
+/* Instagram /embed/ — absolute pos clips top/bottom chrome with no overlay bars */
 .ig-clip{
-  border-radius:12px;
-  overflow:hidden;
-  background:#000;
   position:relative;
-  height:750px;
+  overflow:hidden;
+  border-radius:12px;
+  background:var(--bg);
+  height:600px;
 }
 
 .ig-clip iframe{
-  display:block;
-  width:100%;
-  height:100%;
-  border:0;
-}
-
-/* Dark overlays cover profile header (top) and action bar (bottom).
-   The iframe beneath stays fully sized and interactive. */
-.ig-clip::before,
-.ig-clip::after{
-  content:'';
   position:absolute;
+  top:-66px;      /* shifts up to hide profile header */
   left:0;
-  right:0;
-  z-index:2;
-  background:#000;
-}
-
-.ig-clip::before{
-  top:0;
-  height:66px;
-  border-radius:12px 12px 0 0;
-}
-
-.ig-clip::after{
-  bottom:0;
-  height:144px;
-  border-radius:0 0 12px 12px;
+  width:100%;
+  height:796px;   /* container(600) + header(66) + footer(130) */
+  border:0;
 }
 
 .clip-card{
@@ -300,9 +278,10 @@ nav a.active{
   opacity:.85;
 }
 
-/* HBO Max: tighter padding so the logo fills the pill better */
+/* HBO Max: bigger in its pill — taller height, tight padding */
 .logo-img--hbo{
-  padding:5px 8px;
+  height:118px;
+  padding:3px 6px;
 }
 
 /* Haha: keep taller since it was already visually small */
@@ -924,7 +903,11 @@ audio{
 
 @media (max-width: 860px){
   .ig-clip{
-    height: 600px;
+    height: 500px;
+  }
+
+  .ig-clip iframe{
+    height: 696px; /* 500 + 66 + 130 */
   }
 
   /* Separator line under hero photo so it ends intentionally */
@@ -944,7 +927,11 @@ audio{
   }
 
   .ig-clip{
-    height: 500px;
+    height: 440px;
+  }
+
+  .ig-clip iframe{
+    height: 636px; /* 440 + 66 + 130 */
   }
 
   .logo-img{
