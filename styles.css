@@ -828,7 +828,8 @@ audio{
 }
 
 /* Photo: sticky so it stays in view while left column scrolls.
-   Height = viewport minus the sticky header. */
+   Height = viewport minus the sticky header.
+   overflow: visible lets the image bleed rightward into page margin (body clips scrollbars). */
 .home-page .home-photo{
   flex: 0 0 56% !important;
   max-width: 56% !important;
@@ -838,15 +839,15 @@ audio{
   height: calc(100vh - 52px) !important;
   display: flex !important;
   align-items: flex-end !important;
-  justify-content: flex-end !important;  /* push image toward the right edge */
-  overflow: hidden !important;
+  justify-content: flex-end !important;
+  overflow: visible !important;
   margin: 0 !important;
   padding: 0 !important;
 }
 
-/* Image fills the sticky column height, right-aligned.
-   Scale(1.18) makes the figure larger; transparent SVG margins absorb
-   the scale so body/microphone are not cropped. */
+/* Image fills the sticky column height, shifted right and scaled up.
+   translateX pushes the figure past the SVG's internal transparent margin.
+   scale makes it visually larger without affecting the left column layout. */
 .home-page .home-photo img{
   height: 100% !important;
   width: auto !important;
@@ -855,7 +856,7 @@ audio{
   object-position: right bottom !important;
   display: block !important;
   margin: 0 !important;
-  transform: scale(1.18);
+  transform: translateX(10%) scale(1.25);
   transform-origin: bottom right;
 }
 
@@ -902,6 +903,8 @@ audio{
 
   .ig-clip iframe{
     height: 696px; /* 500 + 66 + 130 */
+    touch-action: auto;      /* allow iOS touch events to reach the video player */
+    pointer-events: auto;
   }
 
   /* Separator line under hero photo so it ends intentionally */
