@@ -209,6 +209,7 @@ nav a.active{
   width:100%;
   height:796px;   /* container(600) + header(66) + footer(130) */
   border:0;
+  overflow:hidden; /* belt-and-suspenders: prevents internal scroll in supporting browsers */
 }
 
 .clip-card{
