@@ -193,21 +193,44 @@ nav a.active{
   gap:1rem;
 }
 
-/* Instagram /embed/ iframe — clip top profile bar and bottom action bar */
+/* Instagram /embed/ iframe — overlay masks hide chrome without clipping the iframe */
 .ig-clip{
   border-radius:12px;
   overflow:hidden;
   background:#000;
   position:relative;
-  height:540px; /* visible video area: iframe height - top(66) - bottom(~144) */
+  height:750px;
 }
 
 .ig-clip iframe{
   display:block;
   width:100%;
-  height:750px;
-  margin-top:-66px; /* shifts up to hide profile header */
+  height:100%;
   border:0;
+}
+
+/* Dark overlays cover profile header (top) and action bar (bottom).
+   The iframe beneath stays fully sized and interactive. */
+.ig-clip::before,
+.ig-clip::after{
+  content:'';
+  position:absolute;
+  left:0;
+  right:0;
+  z-index:2;
+  background:#000;
+}
+
+.ig-clip::before{
+  top:0;
+  height:66px;
+  border-radius:12px 12px 0 0;
+}
+
+.ig-clip::after{
+  bottom:0;
+  height:144px;
+  border-radius:0 0 12px 12px;
 }
 
 .clip-card{
@@ -877,7 +900,8 @@ audio{
     flex: none !important;
     max-width: 100% !important;
     padding-right: 0 !important;
-    order: 2; /* content below photo */
+    padding-top: 1.2rem; /* breathing room between the line and "Adam Banerjee" */
+    order: 2;
   }
 
   .home-page .home-photo{
@@ -900,12 +924,7 @@ audio{
 
 @media (max-width: 860px){
   .ig-clip{
-    height: 460px;
-  }
-
-  .ig-clip iframe{
-    height: 680px;
-    margin-top: -66px;
+    height: 600px;
   }
 
   /* Separator line under hero photo so it ends intentionally */
@@ -925,12 +944,7 @@ audio{
   }
 
   .ig-clip{
-    height: 390px;
-  }
-
-  .ig-clip iframe{
-    height: 610px;
-    margin-top: -66px;
+    height: 500px;
   }
 
   .logo-img{
