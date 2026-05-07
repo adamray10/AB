@@ -21,6 +21,7 @@ body{
   background:var(--bg);
   color:var(--text);
   line-height:1.5;
+  overflow-x:hidden; /* prevents horizontal scroll from hero photo bleed */
 }
 
 a{ color:var(--text); text-decoration:none; }
@@ -821,8 +822,8 @@ audio{
 
 /* Left column: stacks text → logos → clips vertically */
 .home-left{
-  flex: 0 0 40%;
-  max-width: 40%;
+  flex: 0 0 38%;
+  max-width: 38%;
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -841,8 +842,8 @@ audio{
 /* Photo: sticky so it stays in view while left column scrolls.
    Height = viewport minus the sticky header. */
 .home-page .home-photo{
-  flex: 0 0 60% !important;
-  max-width: 60% !important;
+  flex: 0 0 62% !important;
+  max-width: none !important;    /* allow extending past .inner right boundary */
   min-width: 0 !important;
   position: sticky !important;
   top: 52px !important;          /* approx header height */
@@ -851,6 +852,8 @@ audio{
   align-items: flex-end !important;
   justify-content: flex-end !important;
   overflow: hidden !important;
+  /* bleed toward browser right edge; body overflow-x:hidden prevents scrollbar */
+  margin-right: calc(-1 * (100vw - min(100vw - 2rem, 1160px)) / 2) !important;
   margin: 0 !important;
   padding: 0 !important;
 }
