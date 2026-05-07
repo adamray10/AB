@@ -209,7 +209,6 @@ nav a.active{
   width:100%;
   height:796px;   /* container(600) + header(66) + footer(130) */
   border:0;
-  overflow:hidden; /* belt-and-suspenders: prevents internal scroll in supporting browsers */
 }
 
 .clip-card{
@@ -822,8 +821,8 @@ audio{
 
 /* Left column: stacks text → logos → clips vertically */
 .home-left{
-  flex: 0 0 44%;
-  max-width: 44%;
+  flex: 0 0 40%;
+  max-width: 40%;
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -842,8 +841,8 @@ audio{
 /* Photo: sticky so it stays in view while left column scrolls.
    Height = viewport minus the sticky header. */
 .home-page .home-photo{
-  flex: 0 0 56% !important;
-  max-width: 56% !important;
+  flex: 0 0 60% !important;
+  max-width: 60% !important;
   min-width: 0 !important;
   position: sticky !important;
   top: 52px !important;          /* approx header height */
@@ -857,7 +856,8 @@ audio{
 }
 
 /* Image fills the sticky column height, anchored bottom-right.
-   Full figure visible — object-fit contain shows the whole image. */
+   Scale(1.18) makes the figure appear larger — transparent SVG margins absorb
+   the scale so body/microphone are not cropped. */
 .home-page .home-photo img{
   height: 100% !important;
   width: auto !important;
@@ -866,6 +866,8 @@ audio{
   object-position: right bottom !important;
   display: block !important;
   margin: 0 !important;
+  transform: scale(1.18);
+  transform-origin: right bottom;
 }
 
 @media (max-width: 860px){
