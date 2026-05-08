@@ -21,7 +21,7 @@ body{
   background:var(--bg);
   color:var(--text);
   line-height:1.5;
-  overflow-x:hidden; /* prevents horizontal scroll from hero photo bleed */
+  overflow-x:hidden;
 }
 
 a{ color:var(--text); text-decoration:none; }
@@ -205,10 +205,10 @@ nav a.active{
 
 .ig-clip iframe{
   position:absolute;
-  top:-66px;      /* shifts up to hide profile header */
+  top:-66px;
   left:0;
   width:100%;
-  height:796px;   /* container(600) + header(66) + footer(130) */
+  height:796px;
   border:0;
 }
 
@@ -728,8 +728,7 @@ audio{
   }
 
   nav{
-    width:100%;
-    gap:.62rem .9rem;
+    width:100%;    gap:.62rem .9rem;
   }
 
   .home-main{
@@ -797,7 +796,6 @@ audio{
 
 /* --- Home layout: left column (text+logos+clips) + sticky photo --- */
 
-/* home-main is the flex row container */
 .home-page .home-main{
   display: flex !important;
   flex-direction: row !important;
@@ -808,7 +806,6 @@ audio{
   padding: 1.2rem 0 0 !important;
 }
 
-/* Left column: stacks text → logos → clips vertically */
 .home-left{
   flex: 0 0 44%;
   max-width: 44%;
@@ -820,17 +817,12 @@ audio{
   padding-bottom: 2rem;
 }
 
-/* Text block: stays at top of left column */
 .home-page .home-copy{
   flex: none !important;
   max-width: none !important;
   min-width: 0 !important;
 }
 
-/* Photo: sticky so it stays in view while left column scrolls.
-   Height = viewport minus the sticky header.
-   overflow: visible + clip-path lets image bleed rightward but clips the top
-   so the scaled image never overlaps the sticky header. */
 .home-page .home-photo{
   flex: 0 0 56% !important;
   max-width: 56% !important;
@@ -847,10 +839,6 @@ audio{
   padding: 0 !important;
 }
 
-/* Image fills the sticky column height, shifted right and scaled up.
-   transform-origin: top right anchors the top of the image so it grows
-   downward — this keeps the hand/mic visible near the header instead of
-   being pushed above the container and clipped. */
 .home-page .home-photo img{
   height: 100% !important;
   width: auto !important;
@@ -859,12 +847,11 @@ audio{
   object-position: right top !important;
   display: block !important;
   margin: 0 !important;
-  transform: translateX(30%) scale(1.18);
+  transform: translateX(30%) scale(1.18) translateY(7%);
   transform-origin: top right;
 }
 
 @media (max-width: 860px){
-  /* On tablet/mobile: stack the photo above the content */
   .home-page .home-main{
     flex-direction: column !important;
     align-items: stretch !important;
