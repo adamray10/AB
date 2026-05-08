@@ -842,24 +842,25 @@ audio{
   align-items: flex-end !important;
   justify-content: flex-end !important;
   overflow: visible !important;
-  clip-path: inset(0.6rem -60vw 0 0) !important; /* clip top ~10px below header; allow right bleed */
+  clip-path: inset(0 -60vw 0 0) !important;
   margin: 0 !important;
   padding: 0 !important;
 }
 
 /* Image fills the sticky column height, shifted right and scaled up.
-   translateX pushes the figure past the SVG's internal transparent margin.
-   scale makes it visually larger without affecting the left column layout. */
+   transform-origin: top right anchors the top of the image so it grows
+   downward — this keeps the hand/mic visible near the header instead of
+   being pushed above the container and clipped. */
 .home-page .home-photo img{
   height: 100% !important;
   width: auto !important;
   max-width: 100% !important;
   object-fit: contain !important;
-  object-position: right bottom !important;
+  object-position: right top !important;
   display: block !important;
   margin: 0 !important;
-  transform: translateX(30%) scale(1.32);
-  transform-origin: bottom right;
+  transform: translateX(30%) scale(1.18);
+  transform-origin: top right;
 }
 
 @media (max-width: 860px){
@@ -874,7 +875,7 @@ audio{
     flex: none !important;
     max-width: 100% !important;
     padding-right: 0 !important;
-    padding-top: 1.2rem; /* breathing room between the line and "Adam Banerjee" */
+    padding-top: 1.2rem;
     order: 2;
   }
 
@@ -882,10 +883,10 @@ audio{
     flex: none !important;
     max-width: 100% !important;
     position: static !important;
-    height: 56vw !important;    /* proportional height on mobile */
+    height: 56vw !important;
     justify-content: center !important;
     align-items: flex-end !important;
-    clip-path: none !important;  /* reset desktop clip so mobile layout is unaffected */
+    clip-path: none !important;
     order: 1;
   }
 
@@ -894,7 +895,7 @@ audio{
     width: auto !important;
     max-width: 100% !important;
     object-position: center bottom !important;
-    transform: none !important;       /* reset desktop scale so head/mic aren't clipped */
+    transform: none !important;
     transform-origin: unset !important;
   }
 }
@@ -905,12 +906,11 @@ audio{
   }
 
   .ig-clip iframe{
-    height: 696px; /* 500 + 66 + 130 */
-    touch-action: auto;      /* allow iOS touch events to reach the video player */
+    height: 696px;
+    touch-action: auto;
     pointer-events: auto;
   }
 
-  /* Separator line under hero photo so it ends intentionally */
   .home-page .home-photo{
     border-bottom: 1px solid var(--line) !important;
   }
@@ -931,7 +931,7 @@ audio{
   }
 
   .ig-clip iframe{
-    height: 636px; /* 440 + 66 + 130 */
+    height: 636px;
   }
 
   .logo-img{
