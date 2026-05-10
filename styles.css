@@ -399,13 +399,16 @@ audio { width: 100%; }
 /* ── Contact page ── */
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: .85rem;
   margin-top: .82rem;
 }
 
 .contact-card { border: 1px solid var(--line); border-radius: 12px; padding: .92rem; background: #241c0f; }
-.contact-card h2 { margin: 0 0 .38rem; font-size: 1.02rem; }
+.contact-card h2 { margin: 0 0 .38rem; font-size: 1.02rem; color: #e8c054; font-weight: 600; }
+.contact-card p { margin: 0 0 .18rem; }
+.contact-card p:first-of-type { font-weight: 700; color: var(--text); }
+.contact-card a { color: var(--muted); font-size: .9rem; }
 
 .contact-note {
   background: #241c0f;
