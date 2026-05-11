@@ -545,7 +545,7 @@ audio{
   border-radius:12px;
 }
 
-/* About credits — clean inline list replacing button pills */
+/* About credits */
 .credit-line{
   margin:0 0 1.1rem;
   font-size:.9rem;
@@ -589,9 +589,9 @@ audio{
   color:#e8c054;
 }
 
-.contact-card p { margin: 0 0 .18rem; }
-.contact-card p:first-of-type { font-weight: 700; color: var(--text); }
-.contact-card a { color: var(--muted); font-size: .9rem; }
+.contact-card p{ margin:0 0 .18rem; }
+.contact-card p:first-of-type{ font-weight:700; color:var(--text); }
+.contact-card a{ color:var(--muted); font-size:.9rem; }
 
 /* Studio page */
 .studio-intro{
@@ -851,7 +851,7 @@ audio{
   object-position: right top !important;
   display: block !important;
   margin: 0 !important;
-  transform: translateX(30%) scale(1.18) translateY(7%);
+  transform: translateX(30%) scale(1.18) translateY(10%);
   transform-origin: top right;
 }
 
@@ -975,13 +975,13 @@ audio{
   }
 }
 
-/* Contact page — add breathing room above footer */
+/* Contact page */
 .contact-page .page{
   min-height: 88vh;
   padding-bottom: 10rem;
 }
 
-/* VO page Disney credit strip below photo */
+/* VO page Disney credit strip */
 .vo-credit-strip{
   margin-top:.85rem;
   background:#e8c054;
