@@ -981,6 +981,11 @@ audio{
   padding-bottom: 10rem;
 }
 
+/* Stand Up page */
+.standup-page .page{
+  min-height: 88vh;
+}
+
 /* VO page Disney credit strip */
 .vo-credit-strip{
   margin-top:.85rem;
