@@ -18,6 +18,7 @@
 
     body.newsletter-page main.page {
       flex: 1 0 auto;
+      padding-bottom: 0;
     }
 
     body.newsletter-page .site-footer {
@@ -40,6 +41,7 @@
     .newsletter-page .newsletter-content {
       min-width: 0;
       text-align: left;
+      padding-bottom: 1.8rem;
     }
 
     .newsletter-page .newsletter-intro {
@@ -62,13 +64,15 @@
       display: flex;
       justify-content: flex-end;
       align-items: flex-end;
+      overflow: visible;
     }
 
     .newsletter-page .newsletter-photo img {
-      width: min(112%, 760px);
-      max-width: 760px;
+      width: min(125%, 860px);
+      max-width: 860px;
       height: auto;
       display: block;
+      transform: translateX(2.5rem);
     }
 
     .newsletter-page #mc_embed_signup {
@@ -81,6 +85,11 @@
       margin: 0;
       border-radius: 8px;
       box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    .newsletter-page #mc_embed_signup_scroll {
+      padding: 1.25rem 1.5rem 1.5rem;
     }
 
     .newsletter-page #mc_embed_signup form {
@@ -123,6 +132,10 @@
     }
 
     @media (max-width: 760px) {
+      body.newsletter-page main.page {
+        padding-bottom: 1.8rem;
+      }
+
       .newsletter-page .newsletter-layout {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -130,11 +143,16 @@
 
       .newsletter-page .newsletter-content {
         text-align: left;
+        padding-bottom: 0;
       }
 
       .newsletter-page .newsletter-form-wrap,
       .newsletter-page #mc_embed_signup {
         max-width: 100%;
+      }
+
+      .newsletter-page #mc_embed_signup_scroll {
+        padding: 1.1rem 1.25rem 1.35rem;
       }
 
       .newsletter-page .newsletter-photo {
@@ -144,6 +162,7 @@
       .newsletter-page .newsletter-photo img {
         width: min(92%, 420px);
         max-width: 420px;
+        transform: none;
       }
     }
   </style>
