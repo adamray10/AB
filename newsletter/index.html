@@ -18,6 +18,8 @@
 
     body.newsletter-page main.page {
       flex: 1 0 auto;
+      display: flex;
+      align-items: flex-end;
       padding-bottom: 0;
     }
 
@@ -33,9 +35,9 @@
 
     .newsletter-page .newsletter-layout {
       display: grid;
-      grid-template-columns: minmax(0, 52%) minmax(260px, 48%);
+      grid-template-columns: minmax(0, 50%) minmax(280px, 50%);
       align-items: end;
-      gap: 1.15rem;
+      gap: 1rem;
     }
 
     .newsletter-page .newsletter-content {
@@ -64,15 +66,17 @@
       display: flex;
       justify-content: flex-end;
       align-items: flex-end;
+      align-self: end;
       overflow: visible;
+      margin-bottom: -1px;
     }
 
     .newsletter-page .newsletter-photo img {
-      width: min(125%, 860px);
-      max-width: 860px;
+      width: min(155%, 1040px);
+      max-width: 1040px;
       height: auto;
       display: block;
-      transform: translateX(2.5rem);
+      transform: translate(5.5rem, 0.35rem);
     }
 
     .newsletter-page #mc_embed_signup {
@@ -133,6 +137,7 @@
 
     @media (max-width: 760px) {
       body.newsletter-page main.page {
+        display: block;
         padding-bottom: 1.8rem;
       }
 
@@ -157,6 +162,7 @@
 
       .newsletter-page .newsletter-photo {
         justify-content: center;
+        margin-bottom: 0;
       }
 
       .newsletter-page .newsletter-photo img {
