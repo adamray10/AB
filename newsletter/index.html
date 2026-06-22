@@ -18,26 +18,31 @@
 
     body.newsletter-page main.page {
       flex: 1 0 auto;
-      display: flex;
-      align-items: flex-end;
+      position: relative;
       padding-bottom: 0;
+      overflow: visible;
     }
 
     body.newsletter-page .site-footer {
       flex-shrink: 0;
+      position: relative;
+      z-index: 2;
     }
 
     .newsletter-page .newsletter-wrap {
       width: 100%;
       max-width: 1080px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
 
     .newsletter-page .newsletter-layout {
       display: grid;
-      grid-template-columns: minmax(0, 50%) minmax(280px, 50%);
-      align-items: end;
-      gap: 1rem;
+      grid-template-columns: minmax(0, 52%) minmax(260px, 48%);
+      align-items: start;
+      gap: 1.15rem;
+      min-height: 100%;
     }
 
     .newsletter-page .newsletter-content {
@@ -62,21 +67,25 @@
     }
 
     .newsletter-page .newsletter-photo {
+      position: absolute;
+      right: -7rem;
+      bottom: -1px;
+      width: min(58vw, 700px);
       min-width: 0;
       display: flex;
       justify-content: flex-end;
       align-items: flex-end;
-      align-self: end;
       overflow: visible;
-      margin-bottom: -1px;
+      pointer-events: none;
+      z-index: 0;
     }
 
     .newsletter-page .newsletter-photo img {
-      width: min(155%, 1040px);
-      max-width: 1040px;
+      width: min(168%, 1120px);
+      max-width: 1120px;
       height: auto;
       display: block;
-      transform: translate(5.5rem, 0.35rem);
+      transform: translateX(6rem);
     }
 
     .newsletter-page #mc_embed_signup {
@@ -137,7 +146,6 @@
 
     @media (max-width: 760px) {
       body.newsletter-page main.page {
-        display: block;
         padding-bottom: 1.8rem;
       }
 
@@ -161,6 +169,8 @@
       }
 
       .newsletter-page .newsletter-photo {
+        position: static;
+        width: 100%;
         justify-content: center;
         margin-bottom: 0;
       }
@@ -261,7 +271,7 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.19 8.19 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1-.07z"/></svg>
         </a>
         <a href="https://www.youtube.com/@adambanerjee" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505.505 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
         </a>
       </div>
     </div>
