@@ -10,6 +10,20 @@
   <link rel="stylesheet" href="/styles.css" />
   <link href="https://cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css" />
   <style>
+    body.newsletter-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body.newsletter-page main.page {
+      flex: 1 0 auto;
+    }
+
+    body.newsletter-page .site-footer {
+      flex-shrink: 0;
+    }
+
     .newsletter-page .newsletter-wrap {
       max-width: 720px;
       margin: 0 auto;
@@ -34,6 +48,7 @@
     .newsletter-page #mc_embed_signup {
       background: #fff;
       clear: left;
+      color: #111;
       font: 14px Helvetica, Arial, sans-serif;
       width: 100%;
       max-width: 600px;
@@ -44,11 +59,33 @@
 
     .newsletter-page #mc_embed_signup form {
       margin: 0;
+      color: #111;
+    }
+
+    .newsletter-page #mc_embed_signup h2,
+    .newsletter-page #mc_embed_signup label,
+    .newsletter-page #mc_embed_signup .indicates-required,
+    .newsletter-page #mc_embed_signup .asterisk,
+    .newsletter-page #mc_embed_signup .mc-field-group,
+    .newsletter-page #mc_embed_signup .response {
+      color: #111;
     }
 
     .newsletter-page #mc_embed_signup h2 {
       margin-top: 0;
       text-align: left;
+    }
+
+    .newsletter-page #mc_embed_signup input[type="text"],
+    .newsletter-page #mc_embed_signup input[type="email"] {
+      color: #111;
+      background: #fff;
+      border-color: #999;
+    }
+
+    .newsletter-page #mc_embed_signup input[type="text"]::placeholder,
+    .newsletter-page #mc_embed_signup input[type="email"]::placeholder {
+      color: #555;
     }
 
     .newsletter-page #mc_embed_signup .button {
