@@ -25,13 +25,25 @@
     }
 
     .newsletter-page .newsletter-wrap {
-      max-width: 720px;
+      width: 100%;
+      max-width: 1080px;
       margin: 0 auto;
-      text-align: center;
+    }
+
+    .newsletter-page .newsletter-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 52%) minmax(260px, 48%);
+      align-items: end;
+      gap: 1.15rem;
+    }
+
+    .newsletter-page .newsletter-content {
+      min-width: 0;
+      text-align: left;
     }
 
     .newsletter-page .newsletter-intro {
-      margin: 0 auto 2rem;
+      margin: 0 0 2rem;
       max-width: 560px;
     }
 
@@ -40,9 +52,23 @@
     }
 
     .newsletter-page .newsletter-form-wrap {
-      margin: 2rem auto 0;
+      margin: 2rem 0 0;
       max-width: 600px;
       text-align: left;
+    }
+
+    .newsletter-page .newsletter-photo {
+      min-width: 0;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+
+    .newsletter-page .newsletter-photo img {
+      width: min(112%, 760px);
+      max-width: 760px;
+      height: auto;
+      display: block;
     }
 
     .newsletter-page #mc_embed_signup {
@@ -52,7 +78,7 @@
       font: 14px Helvetica, Arial, sans-serif;
       width: 100%;
       max-width: 600px;
-      margin: 0 auto;
+      margin: 0;
       border-radius: 8px;
       box-sizing: border-box;
     }
@@ -96,14 +122,28 @@
       max-width: 100%;
     }
 
-    @media (max-width: 640px) {
-      .newsletter-page .newsletter-wrap {
+    @media (max-width: 760px) {
+      .newsletter-page .newsletter-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .newsletter-page .newsletter-content {
         text-align: left;
       }
 
       .newsletter-page .newsletter-form-wrap,
       .newsletter-page #mc_embed_signup {
         max-width: 100%;
+      }
+
+      .newsletter-page .newsletter-photo {
+        justify-content: center;
+      }
+
+      .newsletter-page .newsletter-photo img {
+        width: min(92%, 420px);
+        max-width: 420px;
       }
     }
   </style>
@@ -125,55 +165,63 @@
 
 <main class="page inner">
   <div class="newsletter-wrap">
-    <section class="newsletter-intro" aria-labelledby="newsletter-heading">
-      <h1 id="newsletter-heading">Stay Connected</h1>
-      <p>Updates for upcoming shows and happenings.</p>
-    </section>
+    <div class="newsletter-layout">
+      <div class="newsletter-content">
+        <section class="newsletter-intro" aria-labelledby="newsletter-heading">
+          <h1 id="newsletter-heading">Stay Connected</h1>
+          <p>Updates for upcoming shows and happenings.</p>
+        </section>
 
-    <section class="newsletter-form-wrap" aria-label="Newsletter signup form">
-      <!-- MAILCHIMP EMBED FORM GOES HERE -->
-      <div id="mc_embed_shell">
-        <div id="mc_embed_signup">
-          <form action="https://adambanerjee.us22.list-manage.com/subscribe/post?u=4a081fa6ea9d01ddf7288413c&amp;id=16620bfa05&amp;f_id=0019c2e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
-            <div id="mc_embed_signup_scroll">
-              <h2>Subscribe</h2>
-              <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
-              <div class="mc-field-group">
-                <label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
-                <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value="" />
-              </div>
-              <div class="mc-field-group">
-                <label for="mce-FNAME">First Name </label>
-                <input type="text" name="FNAME" class="text" id="mce-FNAME" value="" />
-              </div>
-              <div class="mc-field-group">
-                <label for="mce-LNAME">Last Name </label>
-                <input type="text" name="LNAME" class="text" id="mce-LNAME" value="" />
-              </div>
-              <div id="mce-responses" class="clear foot">
-                <div class="response" id="mce-error-response" style="display: none;"></div>
-                <div class="response" id="mce-success-response" style="display: none;"></div>
-              </div>
-              <div aria-hidden="true" style="position: absolute; left: -5000px;">
-                <input type="text" name="b_4a081fa6ea9d01ddf7288413c_16620bfa05" tabindex="-1" value="" />
-              </div>
-              <div class="optionalParent">
-                <div class="clear foot">
-                  <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe" />
-                  <p style="margin: 0px auto;">
-                    <a href="http://eepurl.com/8u5P8FzmQ5" title="Mailchimp - email marketing made easy and fun">
-                      <span style="display: inline-block; background-color: transparent; border-radius: 4px;">
-                        <img class="refferal_badge" src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg" alt="Intuit Mailchimp" style="width: 220px; height: 40px; display: flex; padding: 2px 0px; justify-content: center; align-items: center;" />
-                      </span>
-                    </a>
-                  </p>
+        <section class="newsletter-form-wrap" aria-label="Newsletter signup form">
+          <!-- MAILCHIMP EMBED FORM GOES HERE -->
+          <div id="mc_embed_shell">
+            <div id="mc_embed_signup">
+              <form action="https://adambanerjee.us22.list-manage.com/subscribe/post?u=4a081fa6ea9d01ddf7288413c&amp;id=16620bfa05&amp;f_id=0019c2e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+                <div id="mc_embed_signup_scroll">
+                  <h2>Subscribe</h2>
+                  <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+                  <div class="mc-field-group">
+                    <label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
+                    <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value="" />
+                  </div>
+                  <div class="mc-field-group">
+                    <label for="mce-FNAME">First Name </label>
+                    <input type="text" name="FNAME" class="text" id="mce-FNAME" value="" />
+                  </div>
+                  <div class="mc-field-group">
+                    <label for="mce-LNAME">Last Name </label>
+                    <input type="text" name="LNAME" class="text" id="mce-LNAME" value="" />
+                  </div>
+                  <div id="mce-responses" class="clear foot">
+                    <div class="response" id="mce-error-response" style="display: none;"></div>
+                    <div class="response" id="mce-success-response" style="display: none;"></div>
+                  </div>
+                  <div aria-hidden="true" style="position: absolute; left: -5000px;">
+                    <input type="text" name="b_4a081fa6ea9d01ddf7288413c_16620bfa05" tabindex="-1" value="" />
+                  </div>
+                  <div class="optionalParent">
+                    <div class="clear foot">
+                      <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe" />
+                      <p style="margin: 0px auto;">
+                        <a href="http://eepurl.com/8u5P8FzmQ5" title="Mailchimp - email marketing made easy and fun">
+                          <span style="display: inline-block; background-color: transparent; border-radius: 4px;">
+                            <img class="refferal_badge" src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg" alt="Intuit Mailchimp" style="width: 220px; height: 40px; display: flex; padding: 2px 0px; justify-content: center; align-items: center;" />
+                          </span>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </form>
             </div>
-          </form>
-        </div>
+          </div>
+        </section>
       </div>
-    </section>
+
+      <div class="newsletter-photo" aria-hidden="true">
+        <img src="/Copy of HS Transparent.svg" alt="" />
+      </div>
+    </div>
   </div>
 </main>
 
